@@ -107,16 +107,35 @@ public class SplitOrder {
     return dt;
   }
 
+  public double dist(double x, double y, double cX, double cY){ // squared distance
+    double xx = x-cX;
+    xx = xx*xx;
+    double yy = y-cY;
+    yy = yy*yy;
+    return (xx + yy);
+  }
+
   public double getV(double x, double y){
-    return x*x+y*y;
-    /*if(Math.abs(x+1.5)<1.45 && Math.abs(y+1.5)<1.45){
-      return 1000.0;
+    if(dist(x,y, -1.5, -1.5) <= 3){
+      return 10000.0;
     }
-    if(Math.abs(x-1.5)<1.45 && Math.abs(y-1.5)<1.45){
-      return 1000.0;
+    else if(dist(x,y, 1.5, 1.5) <= 3){
+      return 10000.0;
     }
-    return 0
-    */
+    else return 0.0;
+
+/*
+    double[] cir= { 0.0, 0.0, 1.0,
+                    0.0, 0.0, 1.0,
+                    0.0, 0.0, 1.0,
+                    0.0, 0.0, 1.0   };
+
+    double V=0.0;
+    for(int i=0; i<(cir.length%3); i++){
+        if(circle(x,y, cir[3*i], cir[3*i+1], cir[3*i+2])){ V+= 1000.0; }
+    }
+    return V;
+*/
   }
 
 }

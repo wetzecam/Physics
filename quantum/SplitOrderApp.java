@@ -60,19 +60,19 @@ public class SplitOrderApp extends AbstractSimulation {
 
   public void reset(){
     control.setValue("f(|r|)", "exp(-r*r/2)");
-    control.setValue("x mode", 0);
-    control.setValue("y mode", 10);
-    control.setValue("xmin", "-2*pi");
-    control.setValue("xmax",  "2*pi");
-    control.setValue("ymin", "-2*pi");
-    control.setValue("ymax",  "2*pi");
-    control.setValue("Nx", 128);
-    control.setValue("Ny", 128);
-    control.setValue("x init", -3.0);
+    control.setValue("x mode", 2);
+    control.setValue("y mode", 5);
+    control.setValue("xmin", "-4*pi");
+    control.setValue("xmax",  "4*pi");
+    control.setValue("ymin", "-4*pi");
+    control.setValue("ymax",  "4*pi");
+    control.setValue("Nx", 64);
+    control.setValue("Ny", 64);
+    control.setValue("x init", -5.0);
     control.setValue("y init", -3.0);
 
     // multiple computation steps per animatoin step
-    setStepsPerDisplay(2);
+    setStepsPerDisplay(20);
     enableStepsPerDisplay(true);
     initialize();
   }
